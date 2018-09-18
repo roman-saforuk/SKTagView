@@ -120,7 +120,7 @@
         for (UIView *view in subviews) {
             CGSize size = view.intrinsicContentSize;
             if (previousView) {
-                CGFloat width = size.width;
+                CGFloat width = size.width < 140 ? 140 : size.width;
                 currentX += itemSpacing;
                 if (currentX + width + rightPadding <= self.preferredMaxLayoutWidth) {
                     view.frame = CGRectMake(currentX, CGRectGetMinY(previousView.frame), size.width, size.height);
